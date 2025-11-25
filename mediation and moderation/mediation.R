@@ -1,7 +1,6 @@
 library(tidyverse)
 library(lavaan)
 library(lavaanPlot)
-library(mediationPlot)
 
 # https://lavaan.ugent.be/tutorial/mediation.html
 

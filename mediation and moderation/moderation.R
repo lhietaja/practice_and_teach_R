@@ -6,6 +6,7 @@ library(modsem)
 #https://modsem.org/articles/modsem.html
 
 head(oneInt)
+
 oneInt2 <- oneInt %>% 
   mutate(x1 = 0.5*x1 + rnorm(2000),
          x2 = 0.6*x2 + rnorm(2000),
@@ -74,10 +75,11 @@ plot_interaction(x = "X", z = "Z", y = "Y",
                  vals_z = c(-1,0,1), model = fit2)
 
 ### Johnson-Neyman plots
+fit3 <- modsem(model, data = oneInt2)
+summary(fit3, fit.measures = TRUE, standardized = TRUE)
 plot_interaction(x = "X", z = "Z", y = "Y",
                  vals_z = c(-1,0,1), model = fit3)
-fit3 <- modsem(model, data = oneInt2) #with less perfect data
-plot_jn(x = "X", z = "Z", y = "Y", model = fit2)
+plot_jn(x = "X", z = "Z", y = "Y", model = fit)
 
 ## multigroup approach ----
 oneInt3 <- oneInt %>% 
